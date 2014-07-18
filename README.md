@@ -8,7 +8,7 @@ INSTRUCTIONS FOR USE WITH OPENFL:
 1. Download the Play Licensing library via the SDK manager
 
 2. Copy it to another location (if you need to modify it)
-3. 
+
 3. You'll also need to tell the project where the Android SDK is located. You do this by running the following command from `android-sdk/tools`:
 
 ```android list targets```
@@ -29,12 +29,12 @@ _Choose the target number that matches your API level and use it in the next com
     <template path="templates/MainActivity.java" rename="src/com/example/game/MainActivity.java" if="googleplay" />
     <android permission="com.android.vending.CHECK_LICENSE" if="googleplay" />
     <dependency name="LicensingVerificationLibrary" path="/Path/To/play_licensing/library/" if="googleplay" />
-```	
+```
 _Keep in mind that this is REPLACING your MainActivity.java. If you are already using a custom MainActivity.java you will need to find another way to integrate this into your project._
-	
+
 7. Test on your device with Eclipse/ADT Running. Open the DDMS Perspective and filter Logcat to tag:MainActivityLicense
 
-8. You should get an Error 3. If so, you'll need to upload an Alpha or Beta to the Google Play store and publish it. It may take a few hours for Google Play to recognize the licensing.
+8. You should get an Error 3 (Not Market Managed). If so, you'll need to upload an Alpha or Beta to the Google Play store and publish it. It may take a few hours for Google Play to recognize the licensing.
 
 9. Test your app again on a device that you've logged into with the Google Account that matches your Developer account email address.
 
