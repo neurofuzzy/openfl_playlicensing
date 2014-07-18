@@ -15,11 +15,12 @@ INSTRUCTIONS FOR USE WITH OPENFL:
 
 5. Add these lines to your project XML (changing the paths as appropriate):
 
+```
     <set name="googleplay" if="android" /> <!-- COMMENT OUT THIS LINE IF TARGETING OTHER STORES -->
     <template path="templates/MainActivity.java" rename="src/com/example/game/MainActivity.java" if="googleplay" />
     <android permission="com.android.vending.CHECK_LICENSE" if="googleplay" />
     <dependency name="LicensingVerificationLibrary" path="/Path/To/play_licensing/library/" if="googleplay" />
-	
+```	
 _Keep in mind that this is REPLACING your MainActivity.java. If you are already using a custom MainActivity.java you will need to find another way to integrate this into your project._
 	
 6. Test on your device with Eclipse/ADT Running. Open the DDMS Perspective and filter Logcat to tag:MainActivityLicense
