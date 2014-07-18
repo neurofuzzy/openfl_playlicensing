@@ -8,12 +8,21 @@ INSTRUCTIONS FOR USE WITH OPENFL:
 1. Download the Play Licensing library via the SDK manager
 
 2. Copy it to another location (if you need to modify it)
+3. 
+3. You'll also need to tell the project where the Android SDK is located. You do this by running the following command from `android-sdk/tools`:
 
-3. Copy and place this MainActivity.java file into a templates directory in your project directory (you can change the location if you wish)
+```android list targets```
 
-4. Follow the Android Market Licensing instructions on how to put in your app's public key and your own salt. Keep in mind you must have created the app entry in the Google Play Developer Console in order to get a key.
+_Choose the target number that matches your API level and use it in the next command_
 
-5. Add these lines to your project XML (changing the paths as appropriate):
+```android update lib-project --path C:/path/to/your/copy/of/LVL --target 8```
+
+
+4. Copy and place this MainActivity.java file into a templates directory in your project directory (you can change the location if you wish)
+
+5. Follow the Android Market Licensing instructions on how to put in your app's public key and your own salt. Keep in mind you must have created the app entry in the Google Play Developer Console in order to get a key.
+
+6. Add these lines to your project XML (changing the paths as appropriate):
 
 ```
     <set name="googleplay" if="android" /> <!-- COMMENT OUT THIS LINE IF TARGETING OTHER STORES -->
@@ -23,13 +32,13 @@ INSTRUCTIONS FOR USE WITH OPENFL:
 ```	
 _Keep in mind that this is REPLACING your MainActivity.java. If you are already using a custom MainActivity.java you will need to find another way to integrate this into your project._
 	
-6. Test on your device with Eclipse/ADT Running. Open the DDMS Perspective and filter Logcat to tag:MainActivityLicense
+7. Test on your device with Eclipse/ADT Running. Open the DDMS Perspective and filter Logcat to tag:MainActivityLicense
 
-7. You should get an Error 3. If so, you'll need to upload an Alpha or Beta to the Google Play store and publish it. It may take a few hours for Google Play to recognize the licensing.
+8. You should get an Error 3. If so, you'll need to upload an Alpha or Beta to the Google Play store and publish it. It may take a few hours for Google Play to recognize the licensing.
 
-8. Test your app again on a device that you've logged into with the Google Account that matches your Developer account email address.
+9. Test your app again on a device that you've logged into with the Google Account that matches your Developer account email address.
 
-9. If all goes well, you should either get an error 0, 1, or no error. You can manipulate the testing value you want to recieve in the Google play developer console under "Account Details -> License Test Response"
+10. If all goes well, you should either get an error 0, 1, or no error. You can manipulate the testing value you want to recieve in the Google play developer console under "Account Details -> License Test Response"
 
 _NOTE: If you want to test with other beta testers, they must use the standard procedure to opt-in to be a beta tester, and you must add them to "Account Details -> Gmail accounts with testing access". They will need to pay for the app (!!) if it is paid in order to be beta testers, or you can send them the APK._
 
